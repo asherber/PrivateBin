@@ -144,8 +144,9 @@ class Controller
         }
 
         // output JSON or HTML
+        $this->_setCacheHeaders();
+
         if ($this->_request->isJsonApiCall()) {
-            header('Content-type: ' . Request::MIME_JSON);
             header('Access-Control-Allow-Origin: *');
             header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
             header('Access-Control-Allow-Headers: X-Requested-With, Content-Type');
@@ -176,6 +177,20 @@ class Controller
             $_COOKIE['lang'] = $lang;
             setcookie('lang', $lang, 0, '', '', true);
         }
+    }
+    /**
+     * Turn off browser caching
+     * 
+     * @access private
+     */
+    private function _setCacheHeaders()
+    {
+        $time = gmdate('D, d M Y H:i:s \G\M\T');
+        header('Cache-Control: no-store, no-cache, no-transform, must-revalidate');
+        header('Pragma: no-cache');
+        header('Expires: ' . $time);
+        header('Last-Modified: ' . $time);
+        header('Vary: Accept');
     }
 
     /**
@@ -343,13 +358,6 @@ class Controller
      */
     private function _view()
     {
-        // set headers to disable caching
-        $time = gmdate('D, d M Y H:i:s \G\M\T');
-        header('Cache-Control: no-store, no-cache, no-transform, must-revalidate');
-        header('Pragma: no-cache');
-        header('Expires: ' . $time);
-        header('Last-Modified: ' . $time);
-        header('Vary: Accept');
         header('Content-Security-Policy: ' . $this->_conf->getKey('cspheader'));
         header('Cross-Origin-Resource-Policy: same-origin');
         header('Cross-Origin-Embedder-Policy: require-corp');
