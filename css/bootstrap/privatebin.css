@@ -11,8 +11,6 @@
 
 body {
 	padding: 0 0 30px;
-    max-width: 750px;
-    margin: auto;
 }
 
 body.navbar-spacing {
