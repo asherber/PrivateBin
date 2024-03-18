@@ -406,9 +406,7 @@ endif;
 ?>
 				</div>
 				<ul id="editorTabs" class="nav nav-tabs hidden">
-					<li role="presentation" class="active"><a role="tab" aria-selected="true" aria-controls="editorTabs" id="messageedit" href="#"><?php echo I18n::_('Editor'); ?></a></li>
-					<li role="presentation"><a role="tab" aria-selected="false" aria-controls="editorTabs" id="messagepreview" href="#"><?php echo I18n::_('Preview'); ?></a></li>
-					<li role="presentation" class="pull-right">
+					<li role="presentation" class="pull-left">
 						<button id="sendbutton" type="button" class="hidden btn btn-<?php echo $isDark ? 'warning' : 'primary'; ?>">
 							<span class="glyphicon" aria-hidden="true"></span> <?php echo I18n::_('Create'), PHP_EOL; ?>
 						</button>
