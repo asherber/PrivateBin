@@ -404,14 +404,7 @@ if (strlen($URLSHORTENER)) :
 <?php
 endif;
 ?>
-				</div>
-				<ul id="editorTabs" class="nav nav-tabs hidden">
-					<li role="presentation" class="pull-left">
-						<button id="sendbutton" type="button" class="hidden btn btn-<?php echo $isDark ? 'warning' : 'primary'; ?>">
-							<span class="glyphicon" aria-hidden="true"></span> <?php echo I18n::_('Create'), PHP_EOL; ?>
-						</button>
-					</li>
-				</ul>
+				</div>				
 			</section>
 			<section class="container">
 				<article class="row">
@@ -421,7 +414,12 @@ endif;
 						<pre id="prettyprint" class="col-md-12 prettyprint linenums:1"></pre>
 					</div>
 					<div id="plaintext" class="col-md-12 hidden"></div>
-					<p class="col-md-12"><textarea id="message" name="message" cols="80" rows="25" class="form-control hidden"></textarea></p>
+					<p class="col-md-12"><textarea id="message" name="message" cols="80" rows="10" class="form-control hidden"></textarea></p>
+                    <p class="col-md-12">
+                        <button id="sendbutton" type="button" class="btn btn-primary btn-block">
+                            <span class="glyphicon" aria-hidden="true"></span> <?php echo I18n::_('Create'), PHP_EOL; ?>
+                        </button>					
+                    </p>
 				</article>
 			</section>
 			<section class="container">
@@ -437,6 +435,7 @@ endif;
 					<span class="small"><?php echo I18n::_('In case this message never disappears please have a look at <a href="%s">this FAQ for information to troubleshoot</a>.', 'https://github.com/PrivateBin/PrivateBin/wiki/FAQ#why-does-the-loading-message-not-go-away'); ?></span>
 				</div>
 			</section>
+            <div><p>&nbsp;</p><p>&nbsp;</p></div>
 			<footer class="container">
 				<div class="row">
 					<h4 class="col-md-5 col-xs-8"><?php echo I18n::_($NAME); ?> <small>v<?php echo $VERSION; ?></small></h4>
